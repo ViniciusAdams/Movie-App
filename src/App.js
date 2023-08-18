@@ -8,6 +8,7 @@ import SearchBox from './components/SearchBox.js';
 import AddFavourite from './components/AddFavourites';
 const App = () => {
   const [movies, setMovies] = useState([]);
+  const [favourites, setFavourites] = useState([]);
   const [searchValue , setSearchValue] = useState ('');
   
   const getMovieRequest = async(searchValue) => {
@@ -25,7 +26,9 @@ const App = () => {
     //Every time when the searchValue changes getMovieRequest will be called
     getMovieRequest(searchValue);
   }, [searchValue]);
-  
+  const addFavouriteMovie = (movie) => {
+    const newFavouriteList = [...favourites]
+  }
   return (
     <div className= 'container-fluid movie-app'>
     
@@ -34,7 +37,7 @@ const App = () => {
       <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />  
       </div>
       <div className='row'>
-      <MovieList movies={movies} favouriteComponent = {AddFavourite} />
+      <MovieList movies={movies} handleFavouritesClick= {addFavouriteMovie}favouriteComponent = {AddFavourite} />
     </div>
     </div>
   );
