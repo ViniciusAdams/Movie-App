@@ -20,14 +20,15 @@ const App = () => {
     if (responseJson.Search){
       setMovies (responseJson.Search);
     }
-  
+  //adding a commit
   };
   useEffect(() => {
     //Every time when the searchValue changes getMovieRequest will be called
     getMovieRequest(searchValue);
   }, [searchValue]);
   const addFavouriteMovie = (movie) => {
-    const newFavouriteList = [...favourites]
+    const newFavouriteList = [...favourites,movie];
+    setFavourites(newFavouriteList);
   }
   return (
     <div className= 'container-fluid movie-app'>
