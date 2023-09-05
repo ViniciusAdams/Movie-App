@@ -29,16 +29,31 @@ const App = () => {
   const addFavouriteMovie = (movie) => {
     const newFavouriteList = [...favourites,movie];
     setFavourites(newFavouriteList);
-  }
+  };
   return (
     <div className= 'container-fluid movie-app'>
-    
+  
       <div className='row d-felx align-item-center mt-4 mb-4'>
       <MovieListHeading heading= 'Movies'/>
       <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />  
       </div>
       <div className='row'>
-      <MovieList movies={movies} handleFavouritesClick= {addFavouriteMovie}favouriteComponent = {AddFavourite} />
+      <MovieList
+       movies={movies} 
+       handleFavouritesClick= {addFavouriteMovie}
+       favouriteComponent = {AddFavourite} />
+
+    </div>
+    <div className='row d-felx align-item-center mt-4 mb-4'>
+      <MovieListHeading heading= 'Favourites'/>
+      
+      </div>
+      <div className='row'>
+      <MovieList
+       movies={favourites} 
+       handleFavouritesClick= {addFavouriteMovie}
+       favouriteComponent = {AddFavourite} />
+
     </div>
     </div>
   );
